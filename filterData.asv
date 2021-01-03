@@ -1,8 +1,3 @@
-%Bandpass filter script on mouse EEG data%
-%Import EDF file first%
-%Copyright authors: Zihao Zhou and Rohan Rao%
-%------------------------------------------------%
-%mousedata = edfread("E:\TBI_screws_F29.reduced.edf");
 mousedata = edfread("C:\Users\zhoujianf.UM-AD\Documents\Zihao\TBI_screws_F29.reduced.edf");
 length = 3600;                          %Set to the number of seconds we will run, 1 hour = 3600
 hour = 1;
@@ -27,6 +22,7 @@ totalAmount = hour*length;
 
 for j = 1:hour
     hourOneNormal = zeros(1, length);
+    if j == 24
     for i = 1:length
         %Method one: take bandpass filter on each second and then average%   
                
@@ -35,11 +31,6 @@ for j = 1:hour
         
         bandPassTemp = bandpass(temp,[1 35], Fs);       %bandpass filter on the data from 1-35 HZ
         filteredVal = filter(b,a, bandPassTemp);
-        finalDeltaPower = bandpower(filteredVal,Fs,[.5,4]);
-        finalThetaPower= bandpower(filteredVal,Fs,[4,7]);
-        finalAlphaPower= bandpower(filteredVal,Fs,[8,13]);
-        finalBetaPower= bandpower(filteredVal,Fs,[13,30]);
-        finalGammaPower= bandpower(filteredVal,Fs,[30,80]);
 
 
         %hourOneDelta = [hourOneDelta, finalDeltaPower];
@@ -87,5 +78,3 @@ writematrix(finalNormalized, "deltaResult.csv");
 %plot(time, hourOneDelta);
 %grid;
 %plot(time,unfiltTotal); 
-
-
