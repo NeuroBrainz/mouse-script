@@ -3,7 +3,14 @@
 %Copyright authors: Zihao Zhou and Rohan Rao%
 %------------------------------------------------%
 %mousedata = edfread("E:\TBI_screws_F29.reduced.edf");
+%epochNum = readtable('E:\epochNum.csv');
+
 mousedata = edfread("C:\Users\zhoujianf.UM-AD\Documents\Zihao\TBI_screws_F29.reduced.edf");
+epochNum = readtable('epochNum.csv');
+
+
+
+
 length = 3600;                          %Set to the number of seconds we will run, 1 hour = 3600
 hour = 1;
 
