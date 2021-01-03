@@ -21,14 +21,13 @@ increment = 1;
 normalAvg = 0;
 totalAmount = hour*length;
 
-
-
-
 for j = 1:hour
-    hourOneNormal = zeros(1, length);
+    hourOneNormal = [];
     for i = 1:length
         %Method one: take bandpass filter on each second and then average%   
-               
+        
+
+        
         temp = mousedata.RF8CONTROL{increment, 1};       %find the data in the relevant cell and load into a temp var.
         
         

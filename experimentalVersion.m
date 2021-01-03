@@ -16,7 +16,7 @@ wo=60/(Fs/2);
 bw=wo/35;
 [b,a]=iirnotch(wo,bw);
 
-finalNormalized = [];
+finalNormalized = zeros(1,hour);
 increment = 1;
 normalAvg = 0;
 totalAmount = hour*length;
