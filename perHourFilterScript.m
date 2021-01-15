@@ -15,6 +15,7 @@ finalFiltered = [];
 totalAmount = 86388;
 
 
+
 Raw_hour = [];
 
 for j = 1:24

@@ -49,8 +49,7 @@ for i = 1:3600
     end
     
     
-    
-    
+        
     increment = increment+1;
 
 
