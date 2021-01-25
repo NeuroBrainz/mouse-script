@@ -80,7 +80,7 @@ end
 %title('Line plot of Normalized Delta Power over time');
 %xlabel('time(hours)');
 %ylabel('normalized delta power');
-%plot(time, finalNormalized);
+%plot(time, finalNormalized);                     
 %hold on
 %plot(time, unfiltTotal);
 
