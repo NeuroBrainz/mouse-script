@@ -1,5 +1,5 @@
 %mousedata = edfread("C:\Users\zhoujianf.UM-AD\Documents\Zihao\TBI_screws_F29.reduced.edf");
-mousedata = edfread("E:\TBI_screws_F29.reduced.edf");
+mousedata = edfread("E:\TBIf465W1.edf");
 epochNum = readmatrix("epochNum.csv");
 
 Fs = 512;        %Set standard frequency
@@ -15,17 +15,30 @@ hourOneNormal = [];
 
 
 
+titleNames = mousedata.Properties.VariableNames;
+
+for u = 1:3
+    choiceString = "RF";
+    if (contains(titleNames(u), choiceString))
+       columnChoice = u; 
+       columnName = titleNames(u);
+        
+    end   
+end
+
+disp(columnChoice);
+disp(columnName);
 
 
-for j = 1:86
+for j = 1:99
         time1 = epochNum(j,1);
         time2 = epochNum(j,2);
         
         w = time1;
         
         while (w <= time2)
-            
-            temp = mousedata.RF8CONTROL{w, 1};       %find the data in the relevant cell and load into a temp var.
+            val = ['columnName'];
+            temp = mousedata.{w, columnChoice};       %find the data in the relevant cell and load into a temp var.
             Raw_hour = [Raw_hour, temp];
 
             if (mod (w, 3600) == 0)
